@@ -16,8 +16,11 @@ const getWeatherCondition = async (locationKey)=>{
 
     const response = await fetch(baseWeather+query);
     const data = await response.json();
-    console.log(data)
+
     return data[0];
 }
 
-getWeatherCondition('2696858')
+searchLocation('warszawa').then(({Key})=>{
+        return getWeatherCondition(Key)
+    })
+    .then(data=>console.log(data))
