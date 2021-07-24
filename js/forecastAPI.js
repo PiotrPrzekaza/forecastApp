@@ -1,7 +1,7 @@
 const API = 'f5FSIBsRKQX2AA7jEWzdjGVIkfA0PSPo';
 
 const searchLocation = async (city) =>{
-    const baseSearch = 'https://dataservice.accuweather.com/locations/v1/cities/search';
+    const baseSearch = 'http://dataservice.accuweather.com/locations/v1/cities/search';
     const query =`?apikey=${API}&q=${city}`
 
     const response = await fetch(baseSearch + query);
@@ -19,8 +19,3 @@ const getWeatherCondition = async (locationKey)=>{
 
     return data[0];
 }
-
-searchLocation('warszawa').then(({Key})=>{
-        return getWeatherCondition(Key)
-    })
-    .then(data=>console.log(data))
