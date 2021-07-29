@@ -5,11 +5,10 @@ const weatherDisplayCard = $('.card');
 const weatherDetails = $('.details');
 
 const updateWeatherDisplay = (data) =>{
-    const location = data.locationDetails;
-    const weather = data.weather;
+    const {locationDetails, weather} = data;
 
     weatherDetails.innerHTML = `
-         <h5 class="my-3">${location.EnglishName}</h5>
+         <h5 class="my-3">${locationDetails.EnglishName}</h5>
          <div class="my-3">${weather.WeatherText}</div>
          <div class="display-4 my-4">
               <span>${weather.Temperature.Metric.Value}</span>
@@ -37,7 +36,7 @@ searchCityForm.addEventListener('submit', (e)=>{
     e.preventDefault();
     const location = searchCityForm.location.value.trim();
     searchCityForm.reset();
-    updateLocation(location).then((data) =>{
-        updateWeatherDisplay(data);
+    updateLocation(location).then(({locationDetails, weather}) =>{
+        updateWeatherDisplay({locationDetails, weather});
     });
 })
