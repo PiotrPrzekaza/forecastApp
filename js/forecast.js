@@ -1,4 +1,7 @@
-const searchCityForm = document.querySelector('form');
+const $ = document.querySelector.bind(document);
+const $$ = document.querySelectorAll.bind(document);
+const searchCityForm = $('form');
+
 
 
 const updateLocation = async(city) => {
@@ -17,5 +20,6 @@ searchCityForm.addEventListener('submit', (e)=>{
     searchCityForm.reset();
     updateLocation(location).then(({locationDetails, weather}) =>{
         console.log(locationDetails);
+        console.log(weather);
     });
 })
