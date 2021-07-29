@@ -17,6 +17,18 @@ const updateWeatherDisplay = (data) =>{
               <span>&deg;${weather.Temperature.Metric.Unit}</span>
          </div>
     `
+    const weatherConditionIcon = `assets/icons/${weather.WeatherIcon}.svg`;
+
+    icon.setAttribute('src', weatherConditionIcon);
+
+    let timeOfDay = null;
+    if(weather.IsDayTime){
+        timeOfDay = 'assets/img/day.svg'
+    }else{
+        timeOfDay ='assets/img/night.svg'
+    }
+    time.setAttribute('src', timeOfDay);
+
     if(weatherDisplayCard.classList.contains('d-none')){
         weatherDisplayCard.classList.remove('d-none')
     }
