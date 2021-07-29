@@ -140,6 +140,7 @@ $RECYCLE.BIN/
 *.lnk
 
 # End of https://www.
+<<<<<<< HEAD
 # VSCode
 .vscode/*
 !.vscode/settings.json
@@ -314,3 +315,5 @@ dmypy.json
 
 # Cython debug symbols
 cython_debug/
+=======
+>>>>>>> refs/remotes/forecastApp/master
