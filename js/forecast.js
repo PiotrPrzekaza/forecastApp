@@ -16,6 +16,10 @@ const updateWeatherDisplay = (data) =>{
               <span>&deg;${weather.Temperature.Metric.Unit}</span>
          </div>
     `
+    if(weatherDisplayCard.classList.contains('d-none')){
+        weatherDisplayCard.classList.remove('d-none')
+    }
+
 }
 
 
