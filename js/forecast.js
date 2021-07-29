@@ -3,6 +3,8 @@ const $$ = document.querySelectorAll.bind(document);
 const searchCityForm = $('form');
 const weatherDisplayCard = $('.card');
 const weatherDetails = $('.details');
+const time = $('img.time');
+const icon = $('.icon img');
 
 const updateWeatherDisplay = (data) =>{
     const {locationDetails, weather} = data;
