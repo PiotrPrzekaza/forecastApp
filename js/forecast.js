@@ -18,7 +18,6 @@ const updateWeatherDisplay = (data) =>{
          </div>
     `
     const weatherConditionIcon = `assets/icons/${weather.WeatherIcon}.svg`;
-
     icon.setAttribute('src', weatherConditionIcon);
 
     let timeOfDay = null;
