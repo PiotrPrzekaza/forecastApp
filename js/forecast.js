@@ -6,8 +6,8 @@ const weatherDetails = $('.details');
 const time = $('img.time');
 const icon = $('.icon img');
 
-const updateWeatherDisplay = (data) =>{
-    const {locationDetails, weather} = data;
+const updateWeatherDisplay = (data) => {
+    const { locationDetails, weather } = data;
 
     weatherDetails.innerHTML = `
          <h5 class="my-3">${locationDetails.EnglishName}</h5>
@@ -24,14 +24,14 @@ const updateWeatherDisplay = (data) =>{
     timeOfDay = weather.IsDayTime ? 'assets/img/day.svg' : 'assets/img/night.svg';
     time.setAttribute('src', timeOfDay);
 
-    if(weatherDisplayCard.classList.contains('d-none')){
+    if (weatherDisplayCard.classList.contains('d-none')) {
         weatherDisplayCard.classList.remove('d-none')
     }
 
 }
 
 
-const updateLocation = async(city) => {
+const updateLocation = async (city) => {
 
     const locationDetails = await searchLocation(city);
     const weather = await getWeatherCondition(locationDetails.Key);
@@ -41,11 +41,11 @@ const updateLocation = async(city) => {
     }
 };
 
-searchCityForm.addEventListener('submit', (e)=>{
+searchCityForm.addEventListener('submit', (e) => {
     e.preventDefault();
     const location = searchCityForm.location.value.trim();
     searchCityForm.reset();
-    updateLocation(location).then(({locationDetails, weather}) =>{
-        updateWeatherDisplay({locationDetails, weather});
+    updateLocation(location).then(({ locationDetails, weather }) => {
+        updateWeatherDisplay({ locationDetails, weather });
     });
 })
