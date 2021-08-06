@@ -9,14 +9,16 @@ const icon = $('.icon img');
 const updateWeatherDisplay = (data) => {
     const { locationDetails, weather } = data;
 
-    weatherDetails.innerHTML = `
-         <h5 class="my-3">${locationDetails.EnglishName}</h5>
-         <div class="my-3">${weather.WeatherText}</div>
-         <div class="display-4 my-4">
-              <span>${weather.Temperature.Metric.Value}</span>
-              <span>&deg;${weather.Temperature.Metric.Unit}</span>
-         </div>
-    `
+    const fragment = `
+    <h5 class="my-3">${locationDetails.EnglishName}</h5>
+    <div class="my-3">${weather.WeatherText}</div>
+    <div class="display-4 my-4">
+         <span>${weather.Temperature.Metric.Value}</span>
+         <span>&deg;${weather.Temperature.Metric.Unit}</span>
+    </div>
+`;
+
+    weatherDetails.innerHTML = fragment;
     const weatherConditionIcon = `assets/icons/${weather.WeatherIcon}.svg`;
     icon.setAttribute('src', weatherConditionIcon);
 
