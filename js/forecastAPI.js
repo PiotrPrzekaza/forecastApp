@@ -1,21 +1,30 @@
-const API = 'f5FSIBsRKQX2AA7jEWzdjGVIkfA0PSPo';
+class Forecast {
+    constructor() {
+        this.keyApi = 'f5FSIBsRKQX2AA7jEWzdjGVIkfA0PSPo';
+        this.weatherURI = 'http://dataservice.accuweather.com/currentconditions/v1/';
+        this.locationURI = 'http://dataservice.accuweather.com/locations/v1/cities/search';
+    }
 
-const searchLocation = async (city) =>{
-    const baseSearch = 'http://dataservice.accuweather.com/locations/v1/cities/search';
-    const query =`?apikey=${API}&q=${city}`
+    async updateLocation(city) {
+        const locationDetails = await this.searchLocation(city);
+        const weather = await this.getWeatherCondition(locationDetails.Key);
+        return {
+            locationDetails,
+            weather
+        }
+    }
 
-    const response = await fetch(baseSearch + query);
-    const data = await  response.json();
+    async searchLocation(city) {
+        const query = `?apikey=${this.keyApi}&q=${city}`
+        const response = await fetch(this.locationURI + query);
+        const data = await response.json();
 
-    return data[0];
+        return data[0];
+    }
+    async getWeatherCondition(locationKey) {
+        const query = `${locationKey}?apikey=${this.keyApi}`;
+        const response = await fetch(this.weatherURI + query);
+        const data = await response.json();
+        return data[0];
+    }
 };
-
-const getWeatherCondition = async (locationKey)=>{
-    const baseWeather = 'http://dataservice.accuweather.com/currentconditions/v1/';
-    const query = `${locationKey}?apikey=${API}`;
-
-    const response = await fetch(baseWeather+query);
-    const data = await response.json();
-
-    return data[0];
-}
