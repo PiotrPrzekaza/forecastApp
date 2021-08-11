@@ -5,6 +5,7 @@ const weatherDisplayCard = $('.card');
 const weatherDetails = $('.details');
 const time = $('img.time');
 const icon = $('.icon img');
+const forecast = new Forecast();
 
 const updateWeatherDisplay = (data) => {
     const { locationDetails, weather } = data;
@@ -37,7 +38,7 @@ searchCityForm.addEventListener('submit', (e) => {
     e.preventDefault();
     const location = searchCityForm.location.value.trim();
     searchCityForm.reset();
-    updateLocation(location).then(({ locationDetails, weather }) => {
+    forecast.updateLocation(location).then(({ locationDetails, weather }) => {
         updateWeatherDisplay({ locationDetails, weather });
     });
 })

@@ -1,30 +1,32 @@
 <!doctype html>
 <html lang="pl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="css/styles.css">
     <title>Pogoda</title>
 </head>
-<body>
-<div class="container my-5 mx-auto">
-    <h1 class="text-muted text-center my-4">
-        POGODA
-    </h1>
-    <form class="location text-center my-4 text-muted">
-        <label for="location"> Wybierz miasto</label>
-        <input type="text" id="location" name="location">
-    </form>
 
-    <div class="card shadow-lg rounded d-none">
-        <img src="https://via.placeholder.com/400x300" alt="image placeholder" class="time card-img-top">
-        <div class="icon bg-light mx-auto text-center">
-            <img src=""
-                 alt="">
-        </div>
+<body>
+    <div class="container my-5 mx-auto">
+        <h1 class="text-muted text-center my-4">
+            POGODA
+        </h1>
+        <form class="location text-center my-4 text-muted">
+            <label for="location"> Wybierz miasto</label>
+            <input type="text" id="location" name="location">
+        </form>
+
+        <div class="card shadow-lg rounded d-none">
+            <img src="https://via.placeholder.com/400x300" alt="image placeholder" class="time card-img-top">
+            <div class="icon bg-light mx-auto text-center">
+                <img src="" alt="">
+            </div>
             <div class="text-muted text-uppercase text-center details">
                 <h5 class="my-3">Miasto</h5>
                 <div class="my-3">Pogoda</div>
@@ -33,9 +35,11 @@
                     <span>&deg;C</span>
                 </div>
             </div>
+        </div>
     </div>
-</div>
-<script src="js/forecast.js"></script>
-<script src="js/forecastAPI.js"></script>
+    <script src="js/forecastAPI.js"></script>
+    <script src="js/forecast.js"></script>
+
 </body>
+
 </html>
